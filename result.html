@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recommendations</title>
+</head>
+<body>
+    <h1>Recommendations for "{{ movie }}"</h1>
+    {% if recs %}
+        <ul>
+        {% for r in recs %}
+            <li>
+                <b>{{ r.title }}</b> ({{ r.genre }}) <br>
+                {{ r.description }}
+            </li>
+        {% endfor %}
+        </ul>
+    {% elif error %}
+        <p style="color:red;">Movie not found in database!</p>
+    {% endif %}
+    <a href="/">Back</a>
+</body>
+</html>
